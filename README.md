@@ -1,70 +1,188 @@
-# Getting Started with Create React App
+# STUDIO. - Graphic Designer Portfolio with Booking & Payments
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A stunning, portfolio-driven website for a freelance graphic designer with integrated booking and payment functionality. Built with React 18+ and Tailwind CSS.
+
+## Features
+
+- **Dark Mode Design** - Modern, editorial aesthetic with dramatic contrasts
+- **Custom Cursor** - Interactive cursor with hover effects (disabled on touch devices)
+- **Booking System** - Multi-step booking flow with service selection, calendar, and form
+- **Payment Integration** - Stripe payment processing (demo mode)
+- **Portfolio Gallery** - Masonry grid with filters and project modals
+- **Animations** - Smooth page transitions and scroll animations with Framer Motion
+- **SEO Optimized** - React Helmet for meta tags, Open Graph, and JSON-LD
+- **Fully Responsive** - Mobile-first design approach
+- **Accessible** - WCAG compliant with proper ARIA labels and keyboard navigation
+
+## Tech Stack
+
+- **React 18+** - Functional components with hooks
+- **Tailwind CSS v3** - Utility-first styling
+- **React Router DOM v6** - Client-side routing
+- **Framer Motion** - Animations and page transitions
+- **React Slick** - Testimonials carousel
+- **React DatePicker** - Calendar component
+- **Stripe.js** - Payment processing
+- **React Hot Toast** - Notifications
+- **React Masonry CSS** - Portfolio grid layout
+- **React Modal** - Project details modal
+- **React Helmet Async** - SEO management
+
+## Design System
+
+### Colors
+
+- **Primary:** Jet Black `#0D0D0D`
+- **Secondary:** Off-White `#FAF8F5`
+- **Accent 1:** Electric Violet `#7C3AED`
+- **Accent 2:** Hot Coral `#FF6B6B`
+- **Neutral:** Warm Gray `#A8A29E`
+
+### Typography
+
+- **Headings:** Space Grotesk (Google Fonts)
+- **Body:** Inter (Google Fonts)
+- **Accent:** Playfair Display (Google Fonts)
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 16+
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/designstudio-portfolio.git
+   cd designstudio-portfolio
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm start
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+## Stripe Setup
+
+This project uses Stripe for payment processing. In demo mode, payments are simulated.
+
+### For Production:
+
+1. Create a [Stripe account](https://stripe.com)
+2. Get your API keys from the Stripe Dashboard
+3. Replace the test publishable key in `src/components/payment/PaymentForm.jsx`:
+   ```javascript
+   const stripePromise = loadStripe('pk_live_YOUR_PUBLISHABLE_KEY');
+   ```
+4. Set up a backend server to create PaymentIntents securely
+5. Update the payment form to call your backend API
+
+### Test Card Numbers
+
+- **Success:** 4242 4242 4242 4242
+- **Decline:** 4000 0000 0000 0002
+- Use any future expiry date and any 3-digit CVC
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── layout/        # Navbar, Footer
+│   ├── home/          # Hero, AboutPreview, FeaturedWork, etc.
+│   ├── portfolio/     # PortfolioGrid, PortfolioFilter, ProjectModal
+│   ├── services/      # ServiceCard, PricingTable
+│   ├── booking/       # BookingCalendar, ServiceSelector, etc.
+│   ├── payment/       # PaymentForm, PaymentSummary, PaymentSuccess
+│   └── shared/        # SectionHeading, AnimatedSection, Button
+├── pages/             # HomePage, PortfolioPage, ServicesPage, etc.
+├── data/              # projects, services, testimonials, pricing
+├── hooks/             # useScrollAnimation, useBooking
+├── context/           # BookingContext
+├── utils/             # helpers
+├── App.jsx
+├── index.js
+└── index.css
+```
 
 ## Available Scripts
 
-In the project directory, you can run:
+- `npm start` - Run development server
+- `npm run build` - Build for production
+- `npm test` - Run tests
 
-### `npm start`
+## Deployment
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Deploy to Vercel
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Push your code to GitHub
+2. Import your repository to [Vercel](https://vercel.com)
+3. Vercel will automatically detect the React app and configure the build settings
+4. Deploy!
 
-### `npm test`
+The `vercel.json` file is already configured to handle client-side routing.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Manual Deployment
 
-### `npm run build`
+1. Build the project:
+   ```bash
+   npm run build
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. The `build` folder contains the production-ready files
+3. Deploy to your hosting provider of choice
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Customization
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Adding New Projects
 
-### `npm run eject`
+Edit `src/data/projects.js` to add new portfolio items:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```javascript
+{
+  id: 13,
+  title: "Your Project",
+  category: "Brand Identity", // Brand Identity, Web Design, Print, or Motion
+  year: 2024,
+  color: "#7C3AED",
+  description: "Project description...",
+  deliverables: ["Item 1", "Item 2"],
+  tools: ["Figma", "Illustrator"],
+  featured: false
+}
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Updating Services
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Edit `src/data/services.js` to modify service offerings and pricing.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Changing Colors
 
-## Learn More
+Update `tailwind.config.js` to change the color scheme:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```javascript
+colors: {
+  'jet-black': '#YOUR_COLOR',
+  'electric-violet': '#YOUR_COLOR',
+  // ...
+}
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## License
 
-### Code Splitting
+MIT License - feel free to use this project for your own portfolio!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Credits
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Fonts: [Google Fonts](https://fonts.google.com)
+- Icons: [React Icons](https://react-icons.github.io/react-icons/)
+- Animations: [Framer Motion](https://www.framer.com/motion/)
