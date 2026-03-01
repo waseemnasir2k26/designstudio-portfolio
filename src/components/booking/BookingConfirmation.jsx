@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { HiCalendar, HiClock, HiEnvelope, HiCurrencyDollar } from 'react-icons/hi2';
+import { HiCalendar, HiClock, HiEnvelope, HiCurrencyDollar, HiBriefcase } from 'react-icons/hi2';
 import { useBooking } from '../../hooks/useBooking';
 import { formatCurrency, formatDate } from '../../utils/helpers';
 import { timeSlots } from '../../data/availableSlots';
@@ -17,7 +17,7 @@ const BookingConfirmation = () => {
     bookingRef,
   } = useBooking();
 
-  const serviceName = selectedService?.title || selectedPackage?.name;
+  const serviceName = selectedService?.title || selectedPackage?.name || 'Design Consultation';
   const timeLabel = timeSlots.find((s) => s.value === selectedTime)?.time || selectedTime;
 
   return (
@@ -86,6 +86,16 @@ const BookingConfirmation = () => {
 
         {/* Details Grid */}
         <div className="space-y-4">
+          <div className="flex items-center gap-4">
+            <div className="w-10 h-10 rounded-lg bg-electric-violet/10 flex items-center justify-center flex-shrink-0">
+              <HiBriefcase className="w-5 h-5 text-electric-violet" />
+            </div>
+            <div>
+              <p className="text-warm-gray text-sm font-inter">Service</p>
+              <p className="text-off-white font-space font-medium">{serviceName}</p>
+            </div>
+          </div>
+
           <div className="flex items-center gap-4">
             <div className="w-10 h-10 rounded-lg bg-electric-violet/10 flex items-center justify-center flex-shrink-0">
               <HiCalendar className="w-5 h-5 text-electric-violet" />
