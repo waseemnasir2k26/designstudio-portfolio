@@ -2,6 +2,10 @@
 
 A stunning, portfolio-driven website for a freelance graphic designer with integrated booking and payment functionality. Built with React 18+ and Tailwind CSS.
 
+## Status
+
+Last reviewed: September 2026 · release v2026.09
+
 ## Features
 
 - **Dark Mode Design** - Modern, editorial aesthetic with dramatic contrasts
