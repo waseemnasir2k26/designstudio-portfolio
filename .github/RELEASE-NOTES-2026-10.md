@@ -1,0 +1,4 @@
+- Public React 18 + Tailwind v3 portfolio site ("STUDIO.") for a graphic designer, with a multi-step booking flow and Stripe checkout described by the README as demo mode; deployable to Vercel via `vercel.json`.
+- October 2026 review: README, tree and history re-read; last functional commit is 2026-03-01. All 5 external README links returned HTTP 200. Package version bumped 0.2.0 to 0.3.0 as release metadata only; no component or style code changed.
+- The README states MIT but the repo had no LICENSE file; the standard MIT LICENSE (Copyright 2026 Waseem Nasir) was added to match, and a Work with SkynetLabs section was appended.
+- Known gaps: README clone URL is still the placeholder `github.com/yourusername/designstudio-portfolio.git` (left unchanged), no tests are committed, and no live URL is stated.
